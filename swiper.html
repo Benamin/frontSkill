@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .span-parent{
+            display: -webkit-box;
+            overflow-x: scroll;
+        }
+        .span-parent::-webkit-scrollbar{
+            display: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        span{
+            display: block;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 300px;overflow: hidden;">
+        <div class="span-parent">
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+            <span>测试测试</span>
+        </div>
+    </div>
+</body>
+</html>

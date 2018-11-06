@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="" alt="" id="main">
+<canvas id="canvas1"></canvas>
+</body>
+<script>
+
+    // 封装了一个简单的方法
+    function circleImg(ctx, img, x, y, r) {
+        ctx.save();
+        var d =2 * r;
+        var cx = x + r;
+        var cy = y + r;
+        console.log(d,cx,cy);
+        ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+        ctx.clip();
+        ctx.drawImage(img, x, y, d, d);
+        ctx.restore();
+    }
+
+    window.onload = function (ev) {
+        var img = new Image();
+        img.src = 'http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo0ykR2B4kB8XiaYZd7EFXWH0vQ2scRncGic4b28ysuMFgtibgwWXxeCB56iaqZpuKJj7eBvmc0elo1CA/132';
+        var canvas1 = document.querySelector("#canvas1");
+        var context1 = canvas1.getContext("2d");
+        circleImg(context1, img, 15, 15, 30);
+    }
+
+</script>
+</html>

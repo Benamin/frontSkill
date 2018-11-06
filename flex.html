@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
+</head>
+<style>
+    .flex > div{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+<a id="downLoad" onclick="downPlan('downLoad')">下载</a>
+<input type="hidden" name="fgycompany.fileUrl" value="地址" />
+<div class="flex">
+    <div>12123456788765432</div>
+    <footer>4</footer>
+</div>
+<script>
+    // <!--延迟执行的函数-->
+    // function test() {
+    //     for(var i = 0;i<5;i++){
+    //         (function (i) {
+    //             setTimeout(function () {
+    //                 console.log(i);
+    //             },4000);
+    //         })(i);
+    //     }
+    // }
+    // test();
+    //
+
+    //下载平面图
+
+    function downPlan() {
+
+       document.execCommand('SaveAs');
+
+    }
+
+    var ary = [12,23,24,42,1];
+    var res = ary.forEach(function (item,index,input) {
+        input[index] = item*10;
+        return input[index];
+    })
+    console.log(res);//--> undefined;
+    console.log(ary);//--> 通过数组索引改变了原数组；
+
+    var ary = [12,23,24,42,1];
+    var res = ary.map(function (item,index,input) {
+        return item;
+    });
+    res.push(100);
+    console.log(res);//-->[12,23,24,42,1,100];  原数组拷贝了一份，并进行了修改
+    console.log(ary);//-->[12,23,24,42,1]；  原数组并未发生变化
+
+    // //求产生连续的最大值,先应用sort方法对数组排序，然后在for循环判断最大连续值
+    var a = [1,0,0,1,1,1,1,0,1,1];
+    a.sort(countNum);
+    console.log(a);
+    var count = 0;  //单次和
+    var max = 0;  //单次和
+    function countNum(a,b) {
+      return b - a;
+    }
+
+    function test() {
+        for(var i = 0;i<a.length;i++){
+            if(a[i] == 1){
+                count ++;
+                console.log('count:' +count);
+            }else{
+                max = count;
+               return max;
+            }
+        }
+
+    }
+    var max1 = test();
+    console.log(max1);
+//    获取当前周的日期 周一到周五
+    //将日期毫秒数加一天的毫秒数
+    function getDates(currentTime) {
+
+        var currentDate = new Date(currentTime);
+        console.log(currentDate.toLocaleDateString());
+        var timesStamp = currentDate.getTime();
+        var currenDay = currentDate.getDay();
+        var dates = [];
+        for (var i = 0; i < 7; i++) {
+            dates.push(new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 6) % 7)).toLocaleDateString().replace(/\//g, '-'));
+        }
+        console.log(dates);
+        return dates;
+    }
+
+    getDates('2019-1-1');
+
+</script>
+</body>
+</html>

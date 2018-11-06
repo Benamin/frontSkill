@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div class="blue" style="float: left;background-color:red;width: 200px;height: 200px;">2343</div>
+    <div class="blue" style="float: left;background-color:red;width: 200px;height: 200px;">2343</div>
+    <div class="blue" style="float: left;background-color:red;width: 200px;height: 200px;">2343</div>
+    <div class="blue" style="float: left;background-color:red;width: 200px;height: 200px;">2343</div>
+    <div class="blue" style="float: left;background-color:red;width: 200px;height: 200px;">2343</div>
+    <div class="red" style=" background-color:blue;width: 200px;height: 200px;z-index:1">12</div>
+</div>
+
+<div class="blue" style="background-color:black;width: 200px;height: 200px;"></div>
+<script>
+    function a() {
+        this.type = 'hello';
+    }
+    var b = new a();
+    a.prototype.name = "jack";
+    a.prototype.fun = function () {
+        console.log("fun is function");
+    }
+    console.log(b.fun());
+</script>
+</body>
+</html>

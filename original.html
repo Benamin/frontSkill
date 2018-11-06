@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var array = [{
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": null,
+                                "id": 16,
+                                "isCompany": 0,
+                                "isDeleted": 0,
+                                "leaf": true,
+                                "name": "兰西猪场",
+                                "oaCode": "oa",
+                                "parentId": 15,
+                                "sapCode": "ANSA999",
+                                "treePath": ",1,14,15,16,"
+                            },
+                            {
+                                "children": null,
+                                "id": 21,
+                                "isCompany": 0,
+                                "isDeleted": 0,
+                                "leaf": true,
+                                "name": "哈尔滨猪场",
+                                "oaCode": "oa",
+                                "parentId": 15,
+                                "sapCode": "ANSA999",
+                                "treePath": ",1,14,15,21,"
+                            },
+                        ],
+                        "id": 15,
+                        "isCompany": 1,
+                        "isDeleted": 0,
+                        "leaf": false,
+                        "name": "黑龙江安佑",
+                        "oaCode": "oa",
+                        "parentId": 14,
+                        "sapCode": "ANSA999",
+                        "treePath": ",1,14,15,"
+                    }
+                ],
+                "id": 14,
+                "isCompany": 0,
+                "isDeleted": 0,
+                "leaf": false,
+                "name": "华北区",
+                "oaCode": null,
+                "parentId": 1,
+                "sapCode": null,
+                "treePath": ",1,14,"
+            },
+            {
+                "children": null,
+                "id": 18,
+                "isCompany": 0,
+                "isDeleted": 0,
+                "leaf": true,
+                "name": "华西区",
+                "oaCode": null,
+                "parentId": 1,
+                "sapCode": null,
+                "treePath": ",1,18,"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": null,
+                                        "id": 41,
+                                        "isCompany": 0,
+                                        "isDeleted": 0,
+                                        "leaf": true,
+                                        "name": "哈尔滨猪场",
+                                        "oaCode": "oa",
+                                        "parentId": 32,
+                                        "sapCode": "sap",
+                                        "treePath": ",1,19,20,32,41,"
+                                    }
+                                ],
+                                "id": 32,
+                                "isCompany": 0,
+                                "isDeleted": 0,
+                                "leaf": false,
+                                "name": "华南一号子节点1",
+                                "oaCode": "oa",
+                                "parentId": 20,
+                                "sapCode": "sap",
+                                "treePath": ",1,19,20,32,"
+                            },
+                            {
+                                "children": null,
+                                "id": 35,
+                                "isCompany": 0,
+                                "isDeleted": 0,
+                                "leaf": true,
+                                "name": "华南一号子节点2",
+                                "oaCode": "oa",
+                                "parentId": 20,
+                                "sapCode": "sap",
+                                "treePath": ",1,19,20,35,"
+                            }
+                        ],
+                        "id": 20,
+                        "isCompany": 1,
+                        "isDeleted": 0,
+                        "leaf": false,
+                        "name": "华南1号",
+                        "oaCode": "oa",
+                        "parentId": 19,
+                        "sapCode": "sap",
+                        "treePath": ",1,19,20,"
+                    }
+                ],
+                "id": 19,
+                "isCompany": 0,
+                "isDeleted": 0,
+                "leaf": false,
+                "name": "华南区",
+                "oaCode": null,
+                "parentId": 1,
+                "sapCode": null,
+                "treePath": ",1,19,"
+            }
+        ],
+        "id": 1,
+        "name": "总部",
+        "parentId": 0,
+        "treePath": ",1,"
+    }];
+    function getOrganizaionById(array, id) {
+        for (var i = 0;i < array.length;i++) {
+            var item = array[i];
+            if (item.id === id) {
+                return item;
+                break;
+            } else {
+                if (item.children && item.children.length !== 0) {
+                    var test = getOrganizaionById(item.children, id);
+                    return test;
+                }
+            }
+        }
+    }
+    var result  = getOrganizaionById(array,14);
+    console.log(result);
+
+    var arr = [1,2,3,4,5,6,7,8,9];
+    function ret() {
+        for (var i = 0;i<arr.length;i++){
+            var a = arr[i];
+            if( i ===1 ){
+                return i;
+                break;
+            }
+
+        }
+    }
+    var res = ret();
+    console.log(res);
+</script>
+</body>
+</html>

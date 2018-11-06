@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直居中的方式</title>
+</head>
+<style>
+    .box{
+        width: 250px;
+        height: 250px;
+        border: 2px solid #000000;
+    }
+    img{
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<p>水平居中的两种方式：1.margin: 0 auto;2.text-align: center;tips:图片的需要变为块状元素</p>
+<div class="box">
+    <img src="blockSymbol.png" alt="">
+</div>
+<p>水平垂直居中</p>
+<p>1.flex方式</p>
+<div class="box" style="display: flex;align-items: center;justify-content: center">
+    <img src="blockSymbol.png" alt="">
+</div>
+<p>2.定位和margin: auto</p>
+<div class="box" style="position: relative">
+    <img src="blockSymbol.png" style="position:absolute;top: 0; left: 0; right: 0;bottom:0;margin: auto;">
+</div>
+<p>3.绝对定位和transfofm</p>
+<div class="box" style="position: relative">
+    <img src="blockSymbol.png" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);" alt="">
+</div>
+<p>4.display:table-cell</p>
+<div class="box" style="display: table-cell;vertical-align: middle;text-align: center">
+    <img src="blockSymbol.png" alt="">
+</div>
+<p>5.知道父元素的宽高的情况下，使用position,padding,margin居中</p>
+
+
+<div class="a">
+    <p><span class=""></span></p>
+    <p><span class=""></span></p>
+    <p><span class=""></span></p>
+</div>text
+<form action="http://localhost/api/api/bankScan/uploadBankImage" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit"  value="保存"/>
+
+
+
+
+</form>
+</body>
+<script>
+    console.log( formatFloat(0.1+0.2,2) );
+    function formatFloat(f,digit){
+        var  m = Math.pow(10, digit);
+        var num = Math.round(f * m) / m;
+        return num;
+    }
+
+</script>
+</html>

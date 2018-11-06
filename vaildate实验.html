@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css" media="screen">
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 200px;
+            float: left;
+            margin: 10px;
+        }
+        /*
+                我这里的类命名都是简写:
+                u :up,
+                d:down,
+                l:left,
+                r:right,
+                b:bottom,
+                2: to;
+                角度正数是顺时针,负的逆时针;角度是代表到某个角度的时候开始往其他范围扩散哦;
+                以前刚搞的时候也挺懵,其实自己多写写就晓得了;
+                截止我写这篇文章,渐变的标准规范更加完善了,许多都不需要带前缀了;
+                而为了兼顾移动端,webkit这种还不能丢掉
+
+            */
+
+        .u2d {
+            background: -webkit-linear-gradient(180deg, #590BCC, #18CC6C);
+            background: linear-gradient(180deg, #590BCC, #18CC6C);
+        }
+
+        .d2u {
+            background: -webkit-linear-gradient(0deg, #590BCC, #18CC6C);
+            background: linear-gradient(0deg, #590BCC, #18CC6C);
+        }
+
+        .l2r {
+            background: -webkit-linear-gradient(90deg, #590BCC, #18CC6C);
+            background: linear-gradient(90deg, #590BCC, #18CC6C);
+        }
+
+        .r2l {
+            background: -webkit-linear-gradient(-90deg, #590BCC, #18CC6C);
+            background: linear-gradient(-90deg, #590BCC, #18CC6C);
+        }
+
+        .rb2lu {
+            background: -webkit-linear-gradient(-45deg, #590BCC, #18CC6C);
+            background: linear-gradient(-45deg, #590BCC, #18CC6C);
+        }
+
+        .lb2ru {
+            background: -webkit-linear-gradient(45deg, #590BCC, #18CC6C);
+            background: linear-gradient(45deg, #590BCC, #18CC6C);
+        }
+
+        .ru2lb {
+            background: -webkit-linear-gradient(-135deg, #590BCC, #18CC6C);
+            background: linear-gradient(-135deg, #590BCC, #18CC6C);
+        }
+
+        .lu2rd {
+            background: -webkit-linear-gradient(135deg, #590BCC, #18CC6C);
+            background: linear-gradient(135deg, #590BCC, #18CC6C);
+        }
+
+        .mclg1 {
+            background: -webkit-linear-gradient(135deg, #D6C4F0, #F6B5B5,#18CC6C,#1AB25E);
+            background: linear-gradient(135deg, #D6C4F0, #F6B5B5,#18CC6C,#1AB25E);
+        }
+
+        .mclg2 {
+            background: -webkit-linear-gradient(135deg, #1FB4DC ,#18CC6C , #8B1A1A,#677C67,#BED128);
+            background: linear-gradient(135deg, #1FB4DC ,#18CC6C , #8B1A1A,#677C67,#BED128);
+        }
+
+        .mclg3 {
+            background: webkit-linear-gradient(135deg, #590BCC, #18CC6C,#B5D821,#22CB33,#BA8787,#050201);
+            background: linear-gradient(135deg, #590BCC, #18CC6C,#B5D821,#22CB33,#BA8787,#050201);
+        }
+
+        .mclg4 {
+            background: -webkit-linear-gradient(-135deg, rgba(20,20,20,.9) ,rgba(50,50,50,.6),rgba(60,125,70,.7), rgba(150,150,150,.8),rgba(200,200,200,.9),rgba(80,125,6,.75),rgba(175,75,75,.5));
+            background: linear-gradient(-135deg, rgba(20,20,20,.9) ,rgba(50,50,50,.6),rgba(60,125,70,.7), rgba(150,150,150,.8),rgba(200,200,200,.9),rgba(80,125,6,.75),rgba(175,75,75,.5));
+        }
+    </style>
+</head>
+
+<body>
+<div class="u2d">自上而下</div>
+<div class="d2u">自下而上</div>
+<div class="l2r">自左到右</div>
+<div class="r2l">自右到左</div>
+<div class="rb2lu">右下角到左上角</div>
+<div class="lb2ru">左下角到右上角</div>
+<div class="ru2lb">右上角到左下角</div>
+<div class="lu2rd">左上角到右下角</div>
+<div class="mclg1">四种颜色渐变</div>
+<div class="mclg2">五种颜色渐变</div>
+<div class="mclg3">六种颜色渐变</div>
+<div class="mclg4">其中颜色带透明的渐变</div>
+</body>
+
+</html>

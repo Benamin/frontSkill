@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = {
+        name:'qw',
+        age:'12'
+    }
+    var b = {
+        height:'120',
+        width:'210',
+    }
+    window.onload = function (ev) {
+        var c = JSON.stringify(a) + JSON.stringify(b);
+        console.log( JSON.parse(c) );
+    }
+</script>
+</body>
+</html>

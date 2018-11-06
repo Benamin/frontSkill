@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <img src="blockSymbol.png" alt="">
+</div>
+<script>
+    var list = [
+        {
+            "id": "0050d077f2ef4f3ab7289bf7d0f215ed",
+            "parentId": "b9a99765784c44378141c789fd8e8c80",
+            "name": "系统管理",
+            "code": "systemManage",
+            "url": "",
+            "imageUrl": null,
+            "comments": "系统管理",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "61fbf8d185184cd0ad3afb071c350f35",
+            "parentId": "b9a99765784c44378141c789fd8e8c80",
+            "name": "综合监控",
+            "code": "monitor",
+            "url": "",
+            "imageUrl": null,
+            "comments": "综合监控",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "1d17dc2e439f4fd9a3037a619c3eb275",
+            "parentId": "0050d077f2ef4f3ab7289bf7d0f215ed",
+            "name": "组织用户",
+            "code": "organizationUser",
+            "url": "group",
+            "imageUrl": null,
+            "comments": "组织用户",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "3ca073e2c3a24a0fadef89e204ff0dfc",
+            "parentId": "0050d077f2ef4f3ab7289bf7d0f215ed",
+            "name": "角色与权限",
+            "code": "role",
+            "url": "power",
+            "imageUrl": null,
+            "comments": "角色与权限",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "3dba52e512034b3188f6fc0dc77d88dc",
+            "parentId": "0050d077f2ef4f3ab7289bf7d0f215ed",
+            "name": "系统审计",
+            "code": "systemCount",
+            "url": "audit",
+            "imageUrl": null,
+            "comments": "系统审计",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "5cf71cff20eb46909c966a11329c35ec",
+            "parentId": "0050d077f2ef4f3ab7289bf7d0f215ed",
+            "name": "审核管理",
+            "code": "approveManage",
+            "url": "examine",
+            "imageUrl": null,
+            "comments": "审核管理",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "74f82e90eb954cfbb3899cb3a1309d9f",
+            "parentId": "61fbf8d185184cd0ad3afb071c350f35",
+            "name": "基础资源监控",
+            "code": "basicMonitor",
+            "url": "basic",
+            "imageUrl": null,
+            "comments": "基础资源监控",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "7a20afe456bc453abe908585b807810c",
+            "parentId": "61fbf8d185184cd0ad3afb071c350f35",
+            "name": "安防门禁监控",
+            "code": "securityMonitor",
+            "url": "security",
+            "imageUrl": null,
+            "comments": "安防门禁监控",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        },
+        {
+            "id": "83f01e5540fb452ea600884f98debcfe",
+            "parentId": "61fbf8d185184cd0ad3afb071c350f35",
+            "name": "监控配置",
+            "code": "monitorConfig",
+            "url": "monitor",
+            "imageUrl": null,
+            "comments": "监控配置",
+            "typing": 1,
+            "systemId": "b9a99765784c44378141c789fd8e8c80",
+            "systemCode": null,
+            "tenantId": null,
+            "isMenu": null
+        }];
+    var aaa= [{name:'wwb',id:111},{name:'aaa',id:0,pid:"mei"},{name:'a',id:1,pid:"mei"},{name:'b',id:2,pid:1},{name:'c',id:3,pid:1},{name:'d',id:4,pid:2},{name:'e',id:5,pid:2}];
+    var data=[
+        {id:1,parent:0,text:'A'},
+        {id:2,parent:4,text:"B"},
+        {id:3,parent:7,text:"C"},
+        {id:4,parent:1,text:"D"},
+        {id:5,parent:0,text:"E"},
+        {id:6,parent:5,text:'B'},
+        {id:7,parent:4,text:"F"}
+    ];
+    function listToTree(myId,pId,list){
+        function exists(list, parentId){
+            for(var i=0; i<list.length; i++){
+                if (list[i][myId] == parentId) return true;
+            }
+            return false;
+        }
+
+        var nodes = [];
+        // get the top level nodes
+        for(var i=0; i<list.length; i++){
+            var row = list[i];
+            if (!exists(list, row[pId])){
+                nodes.push(row);
+            }
+        }
+
+        var toDo = [];
+        for(var i=0; i<nodes.length; i++){
+            toDo.push(nodes[i]);
+        }
+        while(toDo.length){
+            var node = toDo.shift(); // the parent node
+            // get the children nodes
+            for(var i=0; i<list.length; i++){
+                var row = list[i];
+                if (row[pId] == node[myId]){
+                    //var child = {id:row.id,text:row.name};
+                    if (node.children){
+                        node.children.push(row);
+                    } else {
+                        node.children = [row];
+                    }
+                    toDo.push(row);
+                }
+            }
+        }
+        return nodes;
+    }
+    //简单使用
+    var a =listToTree('id','parentId',list)
+    console.log(a);
+    // window.onload = function (ev) {
+    //     for (var i = 0; i < list.length; i++) {
+    //         list[i].children = [];
+    //         for (var j = 0; j < list.length; i++) {
+    //             if (list[i].id === list[j].parentId) {
+    //                 list[i].children.push(list[j]);
+    //             }
+    //         }
+    //     }
+    //     console.log()
+    // }
+</script>
+</body>
+</html>
+

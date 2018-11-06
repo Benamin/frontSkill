@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>map方法</title>
+</head>
+<body>
+<p>点击按钮将数组中的每个元素乘以输入框指定的值，并返回新数组</p>
+<p>
+    最小年龄:
+    <input type="number" id="age" value="10" />
+</p>
+<button id="btn">点我</button>
+<p id="data">新数组</p>
+
+<script type="text/javascript">
+    var a = [1,2,3,4,5,6];
+    var b = deepClone(a);
+    b.push('b');
+    console.log(a);
+    console.log(b);
+
+
+
+
+    function deepClone(data) {
+        var type = getType(data);
+        var obj;
+        if( type === 'array' ){
+            obj = [];
+        }else if( type === 'object' ){
+            obj = {};
+        }else {
+            return data;
+        }
+
+        if( type === 'array' ){
+            for( var i = 0;i < data.length;i++ ){
+                obj.push(deepClone(data[i]));
+            }
+        }else if( type === 'object' ){
+            for( var key in data ){
+                obj[key] = deepClone(data[key]);
+            }
+        }
+
+        return obj;
+    }
+
+    ab();
+    function ab() {
+        var a = [1, 2];
+        var b = a.concat();
+        b.push(5);
+        console.log(a);
+        console.log(b);
+        var c = {c1: 1, c2: 2};
+        var d = Object.assign(new Object(), c);
+        d.d3 = 3;
+        console.log(c);
+        console.log(d);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .clip {
+        position: absolute;
+        clip: rect(0 0 0 0);
+    }
+</style>
+<body>
+<input type="file" id="uploadFile" class="clip" accept="image/*">
+<label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
+<img id="imgCover" src="shared.png" class="clip">
+<p id="imgUploadX"></p>
+<script>
+   var str = '621226 1001080722173';
+   var a =  str.trim();
+   console.log(a);
+</script>
+</body>
+</html>

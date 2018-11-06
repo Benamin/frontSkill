@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<table>
+    <th id="text">
+        <span id="test" title='sdfsdfsdfsdf'>是否</span>
+
+    </th>
+</table>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        var a = "任务名称:任务全称：cewc 开始时间：2018-10-24 08:30:00.0执行人：bkbk重要领导：null 执行人：bkbk  重要领导：null 开始时间：2018-10-24 08:30:00.0";
+        var tetx = $("#text");
+        var chr = $(' <span title= ' + a + '  style="">nihao</span> ');
+        chr.appendTo(tetx);
+    });
+
+</script>
+</body>
+</html>

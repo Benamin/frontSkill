@@ -1,63 +1,52 @@
-<!DOCTYPE html>
-<meta charset="utf-8" />
-<title>WebSocket Test</title>
-<script language="javascript"type="text/javascript">
-    var wsUri ="ws://echo.websocket.org/";
-    var output;
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wangqinghua</title>
+</head>
+<body>
+<input type="text" id="message">
+<button onclick="submit()">发送</button>
+<button onclick="closeW()">关闭</button>
+<script>
+    var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbk5hbWUiOiJ3YW5ncWluZ2h1YSIsImV4cCI6MTU2MjEyMjMxMCwidXNlcklkIjoiY2MzNjliNjJhMjZlNDk2NDljMTVjMmJhYTk3NjgwMjEifQ.Vhdsd7JAkEAcY7mM2U-Mh7btMeOtEBmBPS_9Ys1Sg_s';
+    var ws = new WebSocket('ws://192.168.2.106:8080/zabbixBox/websocket/' + token);
+    ws.onopen = function () {
+        console.log('success')
+    };
+    ws.onmessage = function (event) {
+        console.log(event);
+    };
+    ws.onclose = function (event) {
+        console.log('关闭 websocket');
+    };
+    ws.onerror = function (ev) {
+        console.log(ev);
+    };
+    ws.addEventListener('close', function (ev) {
+        console.log(ev)
+    });
 
-    function init() {
-        output = document.getElementById("output");
-        testWebSocket();
+    function submit() {
+        var message = document.querySelector("#message").value;
+        console.log(message)
+        var data =
+            {
+                "userid": 'cc369b62a26e49649c15c2baa9768021',
+                "msssage": message,
+                "toUserIds": ['f8412551ac2d438eb4bebbb04809f62d']
+            }
+        console.log(JSON.stringify(data))
+        ws.send("JSON.stringify(data)");
+    };
+
+    function closeW() {
+        ws.close();
     }
 
-    function testWebSocket() {
-        websocket = new WebSocket(wsUri);
-        websocket.onopen = function(evt) {
-            onOpen(evt)
-        };
-        websocket.onclose = function(evt) {
-            onClose(evt)
-        };
-        websocket.onmessage = function(evt) {
-            onMessage(evt)
-        };
-        websocket.onerror = function(evt) {
-            onError(evt)
-        };
-    }
-
-    function onOpen(evt) {
-        writeToScreen("CONNECTED");
-        doSend("WebSocket rocks");
-    }
-
-    function onClose(evt) {
-        writeToScreen("DISCONNECTED");
-    }
-
-    function onMessage(evt) {
-        writeToScreen('<span style="color: blue;">RESPONSE: '+ evt.data+'</span>');
-        websocket.close();
-    }
-
-    function onError(evt) {
-        writeToScreen('<span style="color: red;">ERROR:</span> '+ evt.data);
-    }
-
-    function doSend(message) {
-        writeToScreen("SENT: " + message);
-        websocket.send(message);
-    }
-
-    function writeToScreen(message) {
-        var pre = document.createElement("p");
-        pre.style.wordWrap = "break-word";
-        pre.innerHTML = message;
-        output.appendChild(pre);
-    }
-
-    window.addEventListener("load", init, false);
 </script>
-<h2>WebSocket Test</h2>
-<div id="output"></div>
+</body>
 </html>

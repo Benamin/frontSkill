@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.onload = function (ev) {
+        var arr = [];
+        var equal = [];
+        var a = "{34616}>123 and {34616}=21 or {34616}<3456456456 ";
+        var b = a.split(" ");
+        b.forEach(function (value) {
+            var index1 = value.indexOf("}");
+           if(value == 'and' || value == 'or'){
+               equal.push(value);
+           }
+            var g = value.substring(0,index1+1);
+           var f = value.substring(index1+1,value.length)
+        });
+        a = a.replace(/and/g,"");
+        a = a.replace(/or/g,"");
+        var c = a.split("  ");
+        c.forEach(function (value,index) {
+            var index1 = value.indexOf("}");
+            var c = value.substring(index1+1,value.length);
+            if(index > 0){
+                var data = {
+                    code:c[0],
+                    value:c.substring(1,c.length),
+                    equal:equal[index-1]
+                }
+            }else{
+                var data = {
+                    code:c[0],
+                    value:c.substring(1,c.length),
+                }
+            }
+
+            arr.push(data);
+        });
+        console.log(arr);
+    }
+</script>
+</body>
+</html>

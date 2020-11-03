@@ -42,7 +42,24 @@
 </body>
 <script>
     window.onload = function (ev) {
+
+        if( 8 < 20 &&  20 <12 ){
+            console.log(true)
+        }else{
+            console.log(false)
+        }
+
       change(0);
+        value  = 600;
+        let hourse = (Math.floor(value / 3600)).toString();
+        hourse = (hourse.length > 1 ? hourse : '0' + hourse);
+        let minutes = Math.floor(value / 60).toString();
+        minutes = minutes % 60 === 0 ? 0:minutes;
+        minutes = (minutes.length > 1 ? minutes : '0' + minutes);
+        let seconds = Math.floor(value % 60).toString();
+        seconds = (seconds.length > 1 ? seconds : '0' + seconds);
+        const timeText = hourse + ":" + minutes + ":" + seconds;
+        console.log(timeText)
     };
 
     function change(index){

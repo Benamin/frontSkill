@@ -1,0 +1,1 @@
+scp -r demo/js root@114.115.139.56:/opt/project/scp -r demo/css  root@114.115.139.56:/opt/project/

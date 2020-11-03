@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crossorigin</title>
+</head>
+<body>
+<canvas width="600" height="300" id="canvas"></canvas>
+<img id="image" alt="">
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var image = new Image();
+    image.setAttribute('crossorigin', 'anonymous');
+    image.onload = function() {
+        ctx.drawImage(image, 0, 0);
+        document.getElementById('image').src = canvas.toDataURL('image/png');
+    };
+    image.src = 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3497300994,2503543630&fm=27&gp=0.jpg';
+</script>
+</body>
